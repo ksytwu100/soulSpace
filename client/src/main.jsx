@@ -1,43 +1,39 @@
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App.jsx';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import SingleThought from './pages/SingleThought';
 import Profile from './pages/Profile';
 import ErrorPage from './pages/ErrorPage';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
         index: true,
-        element: <Home />
-      }, {
+        element: <Home />,
+      },
+      {
         path: '/login',
-        element: <Login />
-      }, {
+        element: <Login />,
+      },
+      {
         path: '/signup',
-        element: <Signup />
-      }, {
-        path: '/profiles/:username',
-        element: <Profile />
-      }, {
+        element: <Signup />,
+      },
+      {
         path: '/me',
-        element: <Profile />
-      }, {
-        path: '/thoughts/:thoughtId',
-        element: <SingleThought />
-      }
-    ]
+        element: <Profile />,
+      },
+    ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <RouterProvider router={router} />
-)
+);

@@ -1,29 +1,31 @@
 const { Schema } = require('mongoose');
 
-// This is a subdocument schema, it won't become its own model but we'll use it as the schema for the User's `savedCars` array in User.js
+// This is a subdocument schema for saved cars
 const carSchema = new Schema({
-
-  content: {
-    type: String,
-    required: true,
-  },
-  // saved car id from RapidAPI
   carId: {
     type: String,
     required: true,
-  },
-  image: {
-    type: String,
-  },
-  additional: {
-    type: String,
+    unique: true, // Ensure no duplicate cars are saved
   },
   title: {
     type: String,
     required: true,
   },
-  wr: {
+  value: {
     type: String,
+    required: true,
+  },
+  year: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  image: {
+    type: String,
+    required: true,
   },
 });
 

@@ -7,6 +7,15 @@ export const LOGIN_USER = gql`
       user {
         _id
         username
+        email
+        savedCars {
+          carId
+          title
+          value
+          year
+          description
+          image
+        }
       }
     }
   }
@@ -19,37 +28,41 @@ export const ADD_USER = gql`
       user {
         _id
         username
+        email
       }
     }
   }
 `;
 
-export const ADD_THOUGHT = gql`
-  mutation addThought($thoughtText: String!) {
-    addThought(thoughtText: $thoughtText) {
+export const SAVE_CAR = gql`
+  mutation saveCar($carData: CarInput!) {
+    saveCar(carData: $carData) {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
+      username
+      savedCars {
+        carId
+        title
+        value
+        year
+        description
+        image
       }
     }
   }
 `;
 
-export const ADD_COMMENT = gql`
-  mutation addComment($thoughtId: ID!, $commentText: String!) {
-    addComment(thoughtId: $thoughtId, commentText: $commentText) {
+export const REMOVE_CAR = gql`
+  mutation removeCar($carId: ID!) {
+    removeCar(carId: $carId) {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-        createdAt
+      username
+      savedCars {
+        carId
+        title
+        value
+        year
+        description
+        image
       }
     }
   }

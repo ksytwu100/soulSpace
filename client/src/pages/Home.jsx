@@ -1,35 +1,27 @@
-import { useQuery } from '@apollo/client';
-
-import ThoughtList from '../components/ThoughtList';
-import ThoughtForm from '../components/ThoughtForm';
-
-import { QUERY_THOUGHTS } from '../utils/queries';
+import { useState } from 'react';
+import CarSearch from '../components/CarSearch';
+import SavedSearches from '../components/SavedSearches';
+import Auth from '../utils/auth';
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_THOUGHTS);
-  const thoughts = data?.thoughts || [];
+  const [savedCars, setSavedCars] = useState([]);
+
+  const handleSaveSearch = (car) => {
+    if (Auth.loggedIn()) {
+      setSavedCars([...savedCars, car]);
+    } else {
+      alert('You need to log in to save searches!');
+    }
+  };
 
   return (
     <main>
       <div className="flex-row justify-center">
-        <div
-          className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: '1px dotted #1a1a1a' }}
-        >
-          <ThoughtForm />
+        <div className="col-12 col-md-8 mb-4">
+          <CarSearch onSave={handleSaveSearch} />
         </div>
-        <div className="col-12 col-md-8 mb-3">
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
-            // <ThoughtList
-            //   thoughts={thoughts}
-            //   title="Some Feed for Thought(s)..."
-            // />
-            <div>
-            Hi world!
-            </div>
-          )}
+        <div className="col-12 col-md-8">
+          <SavedSearches savedCars={savedCars} />
         </div>
       </div>
     </main>
