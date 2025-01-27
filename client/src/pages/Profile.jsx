@@ -4,7 +4,7 @@ import SavedSearches from '../components/SavedSearches';
 import Auth from '../utils/auth';
 
 const Profile = () => {
-  const { loading, data } = useQuery(QUERY_ME);
+  const { loading, data, refetch } = useQuery(QUERY_ME);
 
   const user = data?.me || {};
 
@@ -20,6 +20,11 @@ const Profile = () => {
     );
   }
 
+  // Function to refetch saved cars after deletion
+  const refetchSavedCars = () => {
+    refetch(); // This will re-trigger the query and update the savedCars list
+  };
+
   return (
     <div>
       <div className="flex-row justify-center mb-3">
@@ -30,7 +35,7 @@ const Profile = () => {
           <h3>Email: {user.email}</h3>
         </div>
         <div className="col-12 col-md-10">
-          <SavedSearches savedCars={user.savedCars || []} />
+          <SavedSearches savedCars={user.savedCars || []} refetchSavedCars={refetchSavedCars} />
         </div>
       </div>
     </div>
