@@ -123,6 +123,68 @@ const carData = {
   },
 };
 
+const styles = {
+  container: {
+    maxWidth: "800px",
+    margin: "0 auto",
+    padding: "20px",
+    fontFamily: "'Arial', sans-serif",
+  },
+  heading: {
+    textAlign: "center",
+    fontSize: "24px",
+    marginBottom: "20px",
+    color: "#333",
+  },
+  searchContainer: {
+    marginBottom: "20px",
+    textAlign: "center",
+  },
+  select: {
+    padding: "10px",
+    fontSize: "16px",
+    borderRadius: "5px",
+    border: "1px solid #ccc",
+    width: "100%",
+    maxWidth: "300px",
+  },
+  card: {
+    border: "1px solid #ddd",
+    borderRadius: "10px",
+    padding: "20px",
+    backgroundColor: "#fff",
+    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+    textAlign: "center",
+  },
+  cardTitle: {
+    fontSize: "20px",
+    marginBottom: "10px",
+    color: "#444",
+  },
+  image: {
+    width: "100%",
+    maxWidth: "400px",
+    height: "auto",
+    borderRadius: "10px",
+    marginBottom: "15px",
+  },
+  text: {
+    fontSize: "16px",
+    color: "#555",
+    marginBottom: "10px",
+  },
+  button: {
+    backgroundColor: "#007BFF",
+    color: "#fff",
+    border: "none",
+    padding: "10px 20px",
+    fontSize: "16px",
+    borderRadius: "5px",
+    cursor: "pointer",
+    marginTop: "10px",
+  },
+};
+
 const CarSearch = ({ onSave }) => {
   const [selectedCar, setSelectedCar] = useState("");
   const [carDetails, setCarDetails] = useState(null);
@@ -134,29 +196,44 @@ const CarSearch = ({ onSave }) => {
   };
 
   return (
-    <div>
-      <h2>Search for Your Next Car</h2>
-      <select value={selectedCar} onChange={handleSelectCar}>
-        <option value="">Select a car</option>
-        {Object.keys(carData).map((car) => (
-          <option key={car} value={car}>
-            {car}
-          </option>
-        ))}
-      </select>
+    <div style={styles.container}>
+      <h2 style={styles.heading}>Search for Your Next Car</h2>
+      <div style={styles.searchContainer}>
+        <select
+          value={selectedCar}
+          onChange={handleSelectCar}
+          style={styles.select}
+        >
+          <option value="">Select a car</option>
+          {Object.keys(carData).map((car) => (
+            <option key={car} value={car}>
+              {car}
+            </option>
+          ))}
+        </select>
+      </div>
 
       {carDetails && (
-        <div>
-          <h3>{selectedCar}</h3>
+        <div style={styles.card}>
+          <h3 style={styles.cardTitle}>{selectedCar}</h3>
           <img
             src={`/images/${carDetails.image}`}
             alt={selectedCar}
-            style={{ width: "300px", height: "200px" }}
+            style={styles.image}
           />
-          <p>Value: {carDetails.value}</p>
-          <p>Year: {carDetails.year}</p>
-          <p>Description: {carDetails.description}</p>
-          <button onClick={() => onSave({ ...carDetails, title: selectedCar })}>
+          <p style={styles.text}>
+            <strong>Value:</strong> {carDetails.value}
+          </p>
+          <p style={styles.text}>
+            <strong>Year:</strong> {carDetails.year}
+          </p>
+          <p style={styles.text}>
+            <strong>Description:</strong> {carDetails.description}
+          </p>
+          <button
+            onClick={() => onSave({ ...carDetails, title: selectedCar })}
+            style={styles.button}
+          >
             Save Search
           </button>
         </div>
