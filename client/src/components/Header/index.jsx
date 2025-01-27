@@ -12,7 +12,7 @@ const Header = () => {
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
           <Link className="text-light" to="/">
-            <h1 className="m-0">Soul Space <i class="fa-solid fa-car"></i></h1>
+            <h1 className="text-2xl font-bold flex items-center gap-2">Soul Space <i class="fa-solid fa-car"></i></h1>
           </Link>
           <p className="m-0">
             Let us help you find your next soul space automobile.
