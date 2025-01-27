@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const carData = {
   "BMW 2 Series": {
@@ -188,11 +189,17 @@ const styles = {
 const CarSearch = ({ onSave }) => {
   const [selectedCar, setSelectedCar] = useState("");
   const [carDetails, setCarDetails] = useState(null);
+  const navigate = useNavigate(); // Hook to navigate programmatically
 
   const handleSelectCar = (event) => {
     const car = event.target.value;
     setSelectedCar(car);
     setCarDetails(carData[car]);
+  };
+
+  const handleViewCarDetails = (carName) => {
+    // Navigate to the CarDetails page, passing the car name
+    navigate(`/car/${carName}`);
   };
 
   return (
@@ -235,6 +242,16 @@ const CarSearch = ({ onSave }) => {
             style={styles.button}
           >
             Save Search
+          </button>
+          <button
+            onClick={() => handleViewCarDetails(selectedCar)} // Pass the car title to the details page
+            style={{
+              ...styles.button,
+              backgroundColor: "#28a745", // Different color for the Wikipedia button
+              marginLeft: "10px",
+            }}
+          >
+            View Wikipedia
           </button>
         </div>
       )}

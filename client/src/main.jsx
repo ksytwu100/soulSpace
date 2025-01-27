@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
+import CarDetails from './pages/CarDetails';  
 import ErrorPage from './pages/ErrorPage';
 
 const router = createBrowserRouter([
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: '/me',
         element: <Profile />,
+      },
+      {
+        path: '/car/:carName',  
+        element: <CarDetails />,  
       },
     ],
   },
