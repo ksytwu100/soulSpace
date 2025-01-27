@@ -1,8 +1,10 @@
 import { useMutation } from '@apollo/client';
 import { REMOVE_CAR } from '../../graphql/mutations';
+import { useNavigate } from 'react-router-dom';
 
 const SavedSearches = ({ savedCars, refetchSavedCars }) => {
   const [removeCar] = useMutation(REMOVE_CAR);
+  const navigate = useNavigate(); // Hook to navigate programmatically
 
   const handleDeleteCar = async (carId) => {
     try {
@@ -16,6 +18,11 @@ const SavedSearches = ({ savedCars, refetchSavedCars }) => {
     } catch (error) {
       console.error('Failed to delete car', error);
     }
+  };
+
+  const handleViewCarDetails = (carName) => {
+    // Navigate to the CarDetails page, passing the car name
+    navigate(`/car/${carName}`);
   };
 
   if (!savedCars.length) {
@@ -32,8 +39,30 @@ const SavedSearches = ({ savedCars, refetchSavedCars }) => {
           <p>Value: {car.value}</p>
           <p>Year: {car.year}</p>
           <p>Description: {car.description}</p>
-          <button onClick={() => handleDeleteCar(car.carId)} style={{ backgroundColor: 'red', color: 'white', padding: '5px 10px', borderRadius: '5px', cursor: 'pointer' }}>
+          <button
+            onClick={() => handleDeleteCar(car.carId)}
+            style={{
+              backgroundColor: 'red',
+              color: 'white',
+              padding: '5px 10px',
+              borderRadius: '5px',
+              cursor: 'pointer',
+            }}
+          >
             Delete
+          </button>
+          <button
+            onClick={() => handleViewCarDetails(car.title)} // Pass the car title to the details page
+            style={{
+              backgroundColor: '#007BFF',
+              color: 'white',
+              padding: '5px 10px',
+              borderRadius: '5px',
+              cursor: 'pointer',
+              marginLeft: '10px', // Add space between buttons
+            }}
+          >
+            View Wikipedia
           </button>
         </div>
       ))}
