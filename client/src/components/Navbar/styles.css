@@ -1,0 +1,128 @@
+/* General styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Landing page container */
+  .landing-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(90deg, #3a7bd5, #00d2ff);
+    color: #ffffff;
+    text-align: center;
+  }
+  
+  .landing-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer; /* Make clickable */
+  }
+  
+  .landing-instruction {
+    font-size: 1.25rem;
+    color: #e3f2fd;
+    animation: blink 1.5s infinite;
+    cursor: pointer; /* Make clickable */
+  }
+  
+  /* Blinking effect for the instruction */
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+  
+  /* Navbar container */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #3a7bd5, #00d2ff);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    padding: 1rem;
+    overflow: hidden; /* Prevents overflow during animations */
+  }
+  
+  /* Left section (Soul Space) */
+  .nav-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-title {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  /* Right section (Links) */
+  .nav-right {
+    display: flex;
+    opacity: 0; /* Hidden by default */
+    transform: translateX(50px); /* Positioned off-screen */
+    transition: opacity 0.8s ease, transform 0.8s ease; /* Smooth transition */
+  }
+  
+  .nav-right.show-links {
+    opacity: 1; /* Fully visible */
+    transform: translateX(0); /* Slides into view */
+  }
+  
+  .nav-right.hide-links {
+    opacity: 0;
+    transform: translateX(50px);
+    pointer-events: none; /* Prevent interaction when hidden */
+  }
+  
+  /* Links and list styles */
+  nav ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+  
+  nav ul li a:hover {
+    background-color: #172554;
+  }
+  
+  /* Logout button */
+  .logout {
+    background-color: #e63946;
+  }
+  
+  /* Car animation */
+  .car-icon {
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 1s linear;
+  }
+  
+  .move-car {
+    transform: translateX(100vw); /* Moves car across the full screen */
+  }
+  
+  .move-car-half {
+    transform: translateX(50vw); /* Moves car halfway across the navbar */
+  }
+  
