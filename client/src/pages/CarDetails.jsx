@@ -55,6 +55,7 @@ const CarDetails = () => {
           }}
         />
       </div>
+
     </div>
   );
 };
