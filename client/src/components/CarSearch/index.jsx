@@ -102,13 +102,13 @@ const carData = {
     value: "$38,990 - $50,990",
     year: "2023",
     description: "Luxury electric sedan",
-    image: "teslamodel3.jpg",
+    image: "tesla3.png",
   },
   "Tesla Model X": {
     value: "$79,990 - $94,990",
     year: "2023",
     description: "Luxury electric SUV",
-    image: "teslamodelx.jpg",
+    image: "teslax.png",
   },
   "Toyota Camry": {
     value: "$27,000",
