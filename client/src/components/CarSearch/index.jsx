@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import CarRating from "../Rating";
 
 const carData = {
   "BMW 2 Series": {
@@ -7,122 +8,143 @@ const carData = {
     year: "2023",
     description: "A compact car with space.",
     image: "BMW-2series.png",
+    rating: '4.3',
   },
   "BMW 5 Series": {
     value: "$56,000-81,500",
     year: "2023",
     description: "Luxury and space",
     image: "BMW-5series.png",
+    rating: '4.1',
   },
   "Chevrolet Tahoe": {
     value: "$54,200-$77,400",
     year: "2023",
     description: "Luxury SUV.",
     image: "tahoe.png",
+    rating: '3.9',
   },
   "Ford Mustang": {
     value: "$27,770 - $55,570",
     year: "2023",
     description: "Fast and fun convertible coupe.",
     image: "ford-f150.jpg",
+    rating: '4.6',
   },
   "Ford F150": {
     value: "$50,000",
     year: "2023",
     description: "A versatile pickup truck.",
     image: "ford-f150.jpg",
+    rating: '4.5',
   },
   "Honda Civic": {
     value: "$25,000",
     year: "2023",
     description: "A compact car with high efficiency.",
     image: "honda-civic.jpg",
+    rating: '4.2',
   },
   "Honda Accord": {
     value: "$30,000",
     year: "2023",
     description: "A midsize sedan with modern features.",
     image: "honda-accord.jpg",
+    rating: '4.4',
   },
   "Hyundai Elantra N": {
     value: "$32,900-$34,400",
     year: "2023",
-    description: "The best gas milleage.",
+    description: "The best gas mileage.",
     image: "hyundai.png",
+    rating: '3.8',
   },
   "Jeep Cherokee": {
     value: "$37,695-$41,295",
     year: "2023",
     description: "Compact SUV",
     image: "jeepcherokee.png",
+    rating: '4.1',
   },
   "Jeep Wrangler": {
     value: "$31,195-$82,495",
     year: "2023",
     description: "Convertible SUV",
     image: "jeepwrangler.png",
+    rating: '4.7',
   },
   "Kia Soul": {
     value: "$19,890-$24,190",
     year: "2023",
     description: "Hatchback sedan",
     image: "kiasoul.png",
+    rating: '4.0',
   },
   "Lexus IS": {
     value: "$40,085-$62,770",
     year: "2023",
     description: "Luxury sedan",
     image: "lexusis.png",
+    rating: '4.6',
   },
   "Lexus RX": {
     value: "$47,800-$62,000",
     year: "2023",
     description: "Luxury SUV",
     image: "lexusrx.png",
+    rating: '4.3',
   },
   "Mazda3 Hatchback": {
     value: "$23,550-$35,300",
     year: "2023",
     description: "Comfortable hatchback sedan",
     image: "mazda3.png",
+    rating: '4.2',
   },
   "Mercedes-Benz CLA": {
     value: "$39,350 - $57,800",
     year: "2023",
     description: "Stylish sedan",
     image: "mercedes.png",
+    rating: '4.4',
   },
   "Subaru Crosstrek": {
     value: "$23,645 - $36,845",
     year: "2023",
     description: "Reliable SUV",
     image: "subaru.png",
+    rating: '4.0',
   },
   "Tesla Model 3": {
     value: "$38,990 - $50,990",
     year: "2023",
     description: "Luxury electric sedan",
     image: "tesla3.png",
+    rating: '4.8',
   },
   "Tesla Model X": {
     value: "$79,990 - $94,990",
     year: "2023",
     description: "Luxury electric SUV",
     image: "teslax.png",
+    rating: '4.7',
   },
   "Toyota Camry": {
     value: "$27,000",
     year: "2023",
     description: "Reliable and stylish sedan.",
     image: "toyota-camry.jpg",
+    rating: '3.9',
   },
   "Toyota Corolla": {
     value: "$24,000",
     year: "2023",
     description: "Economical and dependable.",
     image: "toyota-corolla.jpg",
+    rating: '4.0',
   },
 };
+
 
 const styles = {
   container: {
@@ -228,6 +250,7 @@ const CarSearch = ({ onSave }) => {
             alt={selectedCar}
             style={styles.image}
           />
+          <CarRating value={carDetails.rating}></CarRating>
           <p style={styles.text}>
             <strong>Value:</strong> {carDetails.value}
           </p>
