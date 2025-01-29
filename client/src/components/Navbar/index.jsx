@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Auth from "../../utils/auth";
 
@@ -78,7 +78,7 @@ export const Navbar = () => {
           >
             <ul>
               <li>
-                <NavLink to={!Auth.loggedIn() ? `/login` : `/me`}>
+                <NavLink className="login-link" to={!Auth.loggedIn() ? `/login` : `/me`}>
                   {!Auth.loggedIn()
                     ? "Login"
                     : `${Auth.getProfile().data.username}'s profile`}
@@ -86,7 +86,7 @@ export const Navbar = () => {
               </li>
               <li>
                 {!Auth.loggedIn() ? (
-                  <NavLink to="/signup">Signup</NavLink>
+                  <NavLink className="login-link" to="/signup">Signup</NavLink>
                 ) : (
                   <NavLink className="logout" onClick={logout} to="/">
                     Logout

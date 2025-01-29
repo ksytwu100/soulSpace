@@ -28,7 +28,7 @@ const Login = () => {
   return (
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
-        <div className="card">
+        <div className="card mt-5">
           <h4 className="card-header bg-dark text-light p-2">Login</h4>
           <div className="card-body">
             {data ? (
@@ -62,7 +62,7 @@ const Login = () => {
             {error && <div className="my-3 p-3 bg-danger text-white">{error.message}</div>}
           </div>
           <div className="card-footer">
-            Don't have an account? <Link to="/signup">Sign up here</Link>.
+            <p> Don&apos;t have an account? <Link to="/signup">Sign up here</Link>.</p>
           </div>
         </div>
       </div>

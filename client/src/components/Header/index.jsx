@@ -8,11 +8,11 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header className="bg-primary text-light mb-4 py-3 flex-row align-center">
+     <header className="custom-header">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
           <Link className="text-light" to="/">
-            <h1 className="text-2xl font-bold flex items-center gap-2">Soul Space <i class="fa-solid fa-car"></i></h1>
+            <h1 className="text-2xl font-bold flex items-center gap-2">Soul Space <i className="fa-solid fa-car"></i></h1>
           </Link>
           <p className="m-0">
             Let us help you find your next soul space automobile.
@@ -30,10 +30,10 @@ const Header = () => {
             </>
           ) : (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/login">
+              <Link className="login-link" to="/login">
                 Login
               </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
+              <Link className="login-link" to="/signup">
                 Signup
               </Link>
             </>

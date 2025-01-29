@@ -1,0 +1,28 @@
+.custom-header {
+    background-color: #606470;; /* Replace with your primary color */
+    color: #ffffff; /* Light text color */
+    margin-bottom: 1rem; /* mb-4 */
+    padding-top: 1rem; /* py-3 */
+    padding-bottom: 1rem; /* py-3 */
+    display: flex; /* flex-row */
+    align-items: center; /* align-center */
+  }
+  
+  .login-link {
+    color: blue; /* Light text color */
+    margin-left: auto;
+    text-decoration: none;
+    padding: 5px 10px;
+    font-size: 22px;
+  }
+ .login-link:hover{
+    background-color: #ffffff;
+    color: blue;
+
+    text-decoration: none;
+ }
+ .saved-cars {
+    display: flex;
+  }
+  
+ 
