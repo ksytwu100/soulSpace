@@ -25,9 +25,9 @@ const SavedSearches = ({ savedCars, refetchSavedCars }) => {
     navigate(`/car/${carName}`);
   };
 
-  if (!savedCars.length) {
-    return <p>No saved searches yet!</p>;
-  }
+  // if (!savedCars.length) {
+  //   return <p>No saved searches yet!</p>;
+  // }
 
   return (
     <div>
