@@ -31,11 +31,12 @@ const SavedSearches = ({ savedCars, refetchSavedCars }) => {
 
   return (
     <div>
-      <h2>Your Saved Searches</h2>
+      <h3>Your Saved Searches</h3>
+      <div className="row justify-space-between"> 
       {savedCars.map((car, index) => (
-        <div key={index} style={{ border: '1px solid #ccc', padding: '10px', marginBottom: '10px' }}>
+        <div className='col-sm-12 col-md-6 col-lg-4 col-xl-3' key={index} style={{ border: '1px solid #ccc', padding: '10px', marginBottom: '10px', marginRight: '10px'}}>
           <h3>{car.title}</h3>
-          <img src={`/images/${car.image}`} alt={car.title} style={{ width: '200px', height: '150px' }} />
+          <img src={`/images/${car.image}`} alt={car.title} style={{ width: '100%',}} />
           <p>Value: {car.value}</p>
           <p>Year: {car.year}</p>
           <p>Description: {car.description}</p>
@@ -66,6 +67,7 @@ const SavedSearches = ({ savedCars, refetchSavedCars }) => {
           </button>
         </div>
       ))}
+      </div>
     </div>
   );
 };
