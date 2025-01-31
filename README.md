@@ -59,4 +59,13 @@ Supported by:
 
 ## License
 
-This project is licensed under the ISC License.
+This project is licensed under the MIT License.
+
+## Links
+Link to the render deployed application:
+
+https://soulspace-cwga.onrender.com
+
+Link to the GitHub repository: 
+
+https://github.com/ksytwu100/soulSpace
